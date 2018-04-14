@@ -1,0 +1,66 @@
+<form name = "BlogForm" ng-submit="blogCreate.createBlog(blogData)" novalidate>
+
+<!-- 	<label>Title</label>
+	<input type="text" name="title" placeholder="Please Enter title" class="form-control" ng-model="blogCreate.blogData.title"> -->
+
+<div ng-class="{'has-success':(BlogForm.title.$valid && !BlogForm.title.$pristine),
+'has-error':(!BlogForm.title.$valid && !BlogForm.title.$pristine) || (!BlogForm.title.$valid && BlogForm.$submitted)}">
+	<label>Title</label>
+	<input type="text" name="title" placeholder="Please Title" class="form-control" ng-model="blogCreate.blogData.title" required>
+	<p class="text-danger help-block" ng-show="(!BlogForm.title.$pristine &&
+		BlogForm.title.$error.required)" >
+		This Field Is Required</p>
+	</div>
+
+
+	<br>
+
+	<!-- <label>Description</label>
+
+	<textarea rows="4" cols="50" name = "description" placeholder="Please Enter description"
+	class="form-control" ng-model="blogCreate.blogData.description"></textarea> -->
+
+	<div ng-class="{'has-success':(BlogForm.description.$valid && !BlogForm.description.$pristine),
+'has-error':(!BlogForm.description.$valid && !BlogForm.description.$pristine) || (!BlogForm.description.$valid && BlogForm.$submitted)}">
+	<label>Description</label>
+	<textarea rows="4" cols="50" name = "description" placeholder="Please Enter description"
+	class="form-control" ng-model="blogCreate.blogData.description" required></textarea>
+	<p class="text-danger help-block" ng-show="(!BlogForm.description.$pristine &&
+		BlogForm.description.$error.required)" >
+		This Field Is Required</p>
+	</div>
+
+
+<br>
+   <tags-input ng-model="tags" use-strings="true" >
+      <auto-complete source="loadTags($query)" select-first-match="false" ></auto-complete >
+
+    </tags-input> 
+   <!-- <p>{{tags}}</p>-->
+    
+	<button class="btn btn-primary" type="submit" ng-disabled = "BlogForm.title.$error.required || BlogForm.description.$error.required">Submit  </button>
+
+</form>
+<div class="row show-hide-message" ng-if="blogCreate.successMsg">
+	<div class="alert alert-success">{{blogCreate.successMsg}}</div>
+</div>
+<br>
+
+<div class="row show-hide-message" ng-if="blogCreate.errorMsg">
+	<div class="alert alert-danger">{{blogCreate.errorMsg}}</div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- 	title = models.CharField(max_length=100)
+	author = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='author', null=True)
+	tags = models.ManyToManyField(Tags)
+	description = models.TextField(max_length=10000)
+	created_on = models.DateTimeField(auto_now_add=True)
+	updated_on = models.DateTimeField(auto_now=True) -->

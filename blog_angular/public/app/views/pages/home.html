@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row grid">
+
+    <div class="col-md-4 card grid-item" ng-repeat="i in blogHome.blogs">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3 id="thumbnail-label" class="blog_heading"><a href="/blog/{{i.id}}">{{i.title}}</a></h3>
+          <p class="blog_description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{i.description}}</p><br>
+          <code ng-repeat="tag in i.tags">{{tag.tag}}</code>
+        </div>
+        <div class="caption card-footer">
+          <p class="text-right"><i>- {{i.author.first_name}} {{i.author.last_name}}</i></p>
+        </div>
+      </div>
+    </div>
+
+    
+  </div><!-- row -->
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="col-md-3">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+			Author Details
+		</div>
+		&nbsp;&nbsp;Username : {{blogInfo.blogObj.author.username}}<br><br>
+		
+		&nbsp;&nbsp;Full Name : {{blogInfo.blogObj.author.first_name}}&nbsp;&nbsp;{{blogInfo.blogObj.author.last_name}}<br><br>
+		</div>
+
+
+			</div>
+	<div class="col-md-6">
+		<div class="panel panel-primary blog_info_disc_block">
+			<div class="panel-heading">
+				{{blogInfo.blogObj.title}}
+			</div>
+			<div class="blog_info_disc">
+				{{blogInfo.blogObj.description}}
+			</div>
+		
+		</div>
+		
+	</div>
+	<div class="col-md-3">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				Tags
+			</div>
+			<div class="blog_info_disc">
+				<code ng-repeat="tag in blogInfo.blogObj.tags">{{tag.tag}}</code>
+			</div>
+		
+		</div>
+		
+	</div>
+</div>
