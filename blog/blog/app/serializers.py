@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers  #serializers taken as inheritance
 from .models import *
 
+
 class UserRegistrationSerializer(serializers.ModelSerializer):
     username = serializers.CharField(required=True, allow_blank=False)
     password = serializers.CharField(required=True)
